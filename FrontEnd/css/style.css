@@ -1,6 +1,10 @@
 body{
- background-image: url("/FrontEnd/images/fondo.png")
-;}
+ background-image: url("/FrontEnd/images/fondo.png");
+}
+
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 h1{
     text-align: center;
@@ -10,10 +14,11 @@ h1{
 
 .recuadro {
     max-width: 90%; 
-    width: 650px; 
+    width: 500px; 
     margin: 50px auto; 
     margin-top: 150px;
     padding: 20px; 
+    padding-bottom: 150px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); 
     border-radius: 5px; 
     border: 1px solid black;
@@ -23,11 +28,6 @@ h1{
     flex-direction: column; 
     align-items: center; 
 }
-
-
-.Alinear{
-text-align: center
-;}
 
 label{
     display: block;
@@ -42,14 +42,10 @@ input {
     border: 1px solid #ccc; /* Borde */
 }
 
-*{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
-
-#Registro{
+#Login{
     padding: 15px 120px;
     background-color:  #19197c;
-    margin-top: 50px;
+    margin-top: 75px;
     text-align: center;
     border: solid black 2px;
     color: rgb(240, 253, 255);
@@ -57,7 +53,7 @@ input {
     cursor: pointer; 
 }
 
-#Registro:hover{
+#Login:hover{
     background-color: white;
     color: #19197c;
 }
@@ -79,3 +75,21 @@ input {
 .Campos-cuenta{
     margin-top: 60px;
 }
+
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #19197c;
+}
+
+.design {
+    border: 2px solid black; /* Borde sólido y visible */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto 3D */
+    background-color: #f7f7f7; /* Fondo claro para destacar */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    max-width: 700px; /* Ajusta el ancho máximo */
+    overflow: hidden; /* Evita que los elementos se desborden fuera del borde */
+}
+
+

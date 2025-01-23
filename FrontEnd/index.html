@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicacion de LOG IN</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/FrontEnd/css/style.css">
 </head>
 <body>
     <fieldset class="recuadro">
@@ -13,18 +13,18 @@
             <p class="seguido">¿Es tu primera vez?</p> 
             <a href="registro.html" >Registrarse</a>
         </div>
-        <form action="">
-            <div class="Alinear">
-                <label for="Usuario" name="Usuario" class="Campos" >Usuario</label>
-                <input type="text" placeholder="Usuario">
+        <form action="" class="needs-validation" >
+            <div>
+                <label for="Usuario" name="Usuario" class="Campos" >Usuario<strong>*</strong></label>
+                <input type="text" placeholder="Usuario" id="Usuario" required>
             </div>
 
-            <div class="Alinear">
-                <label for="Contraseña" name="Password" class="Campos">Contraseña</label>
-                <input type="text" placeholder="Contraseña">
+            <div>
+                <label for="Contraseña" name="Password" class="Campos">Contraseña<strong>*</strong></label>
+                <input type="password" placeholder="Contraseña" id="Contraseña" required>
             </div>
 
-            <button type="submit" id="Registro">Iniciar Sesión</button>
+            <button type="submit" id="Login">Iniciar Sesión</button>
         </form>
 
 

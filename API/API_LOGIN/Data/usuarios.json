@@ -1,0 +1,16 @@
+[
+  {
+    "nombre": "Maikin",
+    "apellido": "custodio",
+    "email": "Miks@example.com",
+    "contraseña": "secret",
+    "comentario": "probando"
+  },
+  {
+    "nombre": "Manuel",
+    "apellido": "perez",
+    "email": "manu@example.com",
+    "contraseña": "casa",
+    "comentario": "segunda prueba"
+  }
+]

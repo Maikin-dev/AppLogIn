@@ -13,3 +13,5 @@
           }, false);
         });
       })();
+
+console.log(fetch('https://localhost:7240/swagger/index.html'))

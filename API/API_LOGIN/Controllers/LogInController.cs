@@ -47,7 +47,6 @@ namespace API_LOGIN.Controllers
             }
         }
 
-
         [HttpPost("login")]
         public IActionResult Login([FromBody] Usuario credenciales)
         {
@@ -58,25 +57,30 @@ namespace API_LOGIN.Controllers
 
             try
             {
+                // Leer usuarios del archivo JSON
+                if (!System.IO.File.Exists(filePath))
+                {
+                    return Unauthorized("No hay usuarios registrados.");
+                }
 
                 string jsonData = System.IO.File.ReadAllText(filePath);
-                List<Usuario> usuarios = JsonConvert.DeserializeObject<List<Usuario>>(jsonData) ?? new List<Usuario>();
+                var usuarios = JsonConvert.DeserializeObject<List<Usuario>>(jsonData) ?? new List<Usuario>();
 
-                var usuario = usuarios.FirstOrDefault(u => u.nombre == credenciales.nombre && u.contraseña == credenciales.contraseña);
-
-                if (usuario != null)
-                {
-                    return Ok($"Bienvenido {usuario.nombre} {usuario.apellido}");
-                }
-                else
+                // Validar credenciales
+                var usuario = usuarios.FirstOrDefault(u => u.email == credenciales.email && u.contraseña == credenciales.contraseña);
+                if (usuario == null)
                 {
                     return Unauthorized("Credenciales incorrectas.");
                 }
+
+                // Retornar datos del usuario
+                return Ok(usuario);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
         }
+
     }
 }

@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenida al Usuario</title>
+    <title>Página de Bienvenida</title>
 </head>
 <body>
-    
+    <h1>Bienvenido, <span id="nombre"></span>!</h1>
+    <p>Email: <span id="email"></span></p>
+    <p>Comentario: <span id="comentario"></span></p>
+    <button onclick="logout()">Cerrar Sesión</button>
+
+    <script>
+        // Cargar datos del usuario
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+        if (!usuario) {
+            window.location.href = 'index.html'; // Redirige si no hay sesión activa
+        } else {
+            document.getElementById('nombre').textContent = usuario.nombre;
+            document.getElementById('email').textContent = usuario.email;
+            document.getElementById('comentario').textContent = usuario.comentario || 'No dejó un comentario.';
+        }
+
+        // Cerrar sesión
+        function logout() {
+            localStorage.removeItem('usuario');
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>

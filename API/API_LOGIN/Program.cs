@@ -1,4 +1,3 @@
-
 namespace API_LOGIN
 {
     public class Program
@@ -7,16 +6,27 @@ namespace API_LOGIN
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
+            // Configurar servicios
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            // Configuración de Swagger/OpenAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Configurar CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("PermitirFrontend", policy =>
+                {
+                    policy.WithOrigins("http://127.0.0.1:5500") // Dirección del frontend permitido
+                          .AllowAnyMethod()                     // Permitir todos los métodos HTTP
+                          .AllowAnyHeader();                   // Permitir todos los encabezados
+                });
+            });
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configurar el pipeline de solicitudes HTTP
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -25,11 +35,15 @@ namespace API_LOGIN
 
             app.UseHttpsRedirection();
 
+            // Aplicar el middleware de CORS
+            app.UseCors("PermitirFrontend");
+
             app.UseAuthorization();
 
-
+            // Mapear controladores al pipeline
             app.MapControllers();
 
+            // Ejecutar la aplicación
             app.Run();
         }
     }

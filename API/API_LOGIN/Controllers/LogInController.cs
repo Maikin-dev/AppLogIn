@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace API_LOGIN.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/login")]
     [ApiController]
     public class LogInController : ControllerBase
     {
@@ -80,6 +80,12 @@ namespace API_LOGIN.Controllers
             {
                 return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
+        }
+
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            return Ok("API funcionando correctamente.");
         }
 
     }

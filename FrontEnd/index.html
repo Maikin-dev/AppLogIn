@@ -36,7 +36,7 @@
             const contraseña = document.getElementById('Contraseña').value;
     
             try {
-                const response = await fetch('https://localhost:7240/swagger/index.html', {
+                const response = await fetch('https://localhost:7240/api/login/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, contraseña }),

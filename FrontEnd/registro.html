@@ -58,7 +58,7 @@
         const data = Object.fromEntries(formData);
 
         try {
-            const response = await fetch('https://localhost:7240/swagger/index.html', {
+            const response = await fetch('https://localhost:7240/api/login/registro', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),

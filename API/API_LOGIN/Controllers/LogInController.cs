@@ -1,4 +1,5 @@
-﻿using API_LOGIN.MODELS;
+﻿using API_LOGIN.Models;
+using API_LOGIN.MODELS;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -48,11 +49,11 @@ namespace API_LOGIN.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] Usuario credenciales)
+        public IActionResult Login([FromBody] LoginRequest credenciales)
         {
-            if (credenciales == null)
+            if (credenciales == null || string.IsNullOrEmpty(credenciales.email) || string.IsNullOrEmpty(credenciales.contraseña))
             {
-                return BadRequest("Las credenciales no son válidas.");
+                return BadRequest("El email y la contraseña son requeridos.");
             }
 
             try
@@ -81,6 +82,7 @@ namespace API_LOGIN.Controllers
                 return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
         }
+
 
         [HttpGet("test")]
         public IActionResult Test()

@@ -45,7 +45,7 @@
                 if (response.ok) {
                     const usuario = await response.json();
                     localStorage.setItem('usuario', JSON.stringify(usuario)); // Guarda datos en localStorage
-                    window.location.href = 'bienvenida.html'; // Redirige a la página de bienvenida
+                    window.location.href = 'welcome.html'; // Redirige a la página de bienvenida
                 } else {
                     const error = await response.text();
                     alert(error);

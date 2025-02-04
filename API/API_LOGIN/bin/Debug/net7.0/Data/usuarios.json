@@ -12,5 +12,12 @@
     "email": "manu@example.com",
     "contraseña": "casa",
     "comentario": "segunda prueba"
+  },
+  {
+    "nombre": "pedro",
+    "apellido": "Polo",
+    "email": "example@gmail.com",
+    "contraseña": "carro",
+    "comentario": "probando"
   }
 ]
